@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo de Caja</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="Block" id="box1">BLOCK</div>
+        <div class="Inline" id="box2">INLINE</div>
+        <div class="Inline" id="box3">INLINE</div>
+        <div class="Inline" id="box4">INLINE</div>
+        <div class="BlockInline" id="box5">BLOCKINLINE</div>
+        <div class="Block" id="box6">BLOCK</div>
+        <div class="Block" id="box7">BLOCK</div>
+        <div class="BlockInline" id="box9">BLOCKINLINE</div>
+        <div class="BlockInline" id="box10">BLOCKINLINE</div>
+    </div>
+</body>
+<style>
+    .container{
+        border: 2px solid rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        background-image: url(https://c0.klipartz.com/pngpicture/510/420/gratis-png-instituto-tecnologico-de-nuevo-laredo-estudiantes-tecnologico-de-nuevo-laredo-universidad-icce-nuevo-laredo-jmj-thumbnail.png);
+    }
+
+    .Block{
+        margin: 2%;
+        display: block;
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+        color: white;
+        font-weight: bold; 
+        text-align: center; 
+        background-image: url(https://media.tenor.com/nisaHYy8yAYAAAAM/besito-catlove.gif);    
+    }
+
+    .Inline{
+        margin: 4%;
+        display: inline;
+        border: 2px solid red;
+        color: white;
+        justify-content: center; 
+        align-: center; 
+        font-weight: bold; 
+        text-align: center; 
+        background-image: url(https://media.tenor.com/nisaHYy8yAYAAAAM/besito-catlove.gif);    
+
+        
+    }
+
+    .BlockInline{
+        margin: 2%;
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        border: 2px solid red;
+        color: white;
+        justify-content: center; 
+        font-weight: bold; 
+        text-align: center; 
+        background-image: url(https://media.tenor.com/nisaHYy8yAYAAAAM/besito-catlove.gif);    
+
+        
+    }
+
+    
+
+</style>
+</html>
