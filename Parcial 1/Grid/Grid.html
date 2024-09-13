@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Coahuila es un lugar</title>
+</head>
+<style>
+    .contenedor{
+        display:inline-grid;
+        grid-template-columns: 100px 100px 100px;
+        grid-template-rows: 100px 100px;
+        background-color: cadetblue;
+        row-gap :100px;
+    }
+    
+    .grid-container {
+        display: grid;
+        grid-template-areas: 
+            'header header header'
+            'menu main right'
+            'footer footer footer';
+        grid-gap: 10px;
+        background-color: #ad3232;
+        padding: 10px;
+    }
+    
+    .grid-container > div {
+        background-color: #1c39cc;
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+    
+    .item1 {
+        grid-area: header;
+    }
+    
+    .item2 {
+        grid-area: menu;
+    }
+    
+    .item3 {
+        grid-area: main;
+    }
+    
+    .item4 {
+        grid-area: right;
+    }
+    
+    .item5 {
+        grid-area: footer;
+    }
+    
+    
+    .one{
+        grid-column: 1/3;
+        grid-row: 1/2;
+        background-color: rgb(10, 121, 162);
+        
+    }
+    .two{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    
+    }
+    .three{
+        grid-column: 2/3;
+        grid-row: 2/3;
+    }
+    
+    
+        </style>
+    <body>
+        <div class="contenedor">
+            <div class="one">1 </div>
+            <div class="two">2 </div>
+            <div class="three">3 </div>
+            <div class="four">4 </div>
+            <div class="five">5 </div>
+            <div class="six">6 </div>
+    
+        </div>
+    
+        <div class="grid-container">
+            <div class="item1">Coahuila 1</div>
+            <div class="item2">Coahuila 2</div>
+            <div class="item3">Coahuila 3</div>
+            <div class="item4">Coahuila 4</div>
+            <div class="item5">Coahuila 5</div>
+        </div>
+    
+    
+    </body>
+</html>

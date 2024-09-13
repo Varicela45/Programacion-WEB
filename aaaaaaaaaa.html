@@ -7,6 +7,35 @@
         
 <style>
    
+    #cajaaa{
+        display: flex;
+        
+    }
+
+    .cajon{
+        height: 200px;
+        width: 200px;
+        flex-direction:row-reverse;
+        flex-wrap:initial;
+        flex-flow:row;
+        flex: 1;
+    }
+
+    #cajita1{
+        background-color: blue;
+        order: 2;
+    }
+
+    #cajita2{
+        background-color: red;
+        order: 3;
+    }
+
+    #cajita3{
+        background-color: green;
+    }
+   
+
 
     #gato{
         margin: 8%;
@@ -22,7 +51,7 @@
 <body id="Caja">
 
     <h1 class="Titulo" >Coahuila es un lugar</h1>
-    <div>
+    <p class="parrafo">
         Coahuila es un estado ubicado en el noreste de México, y 
         <span>Coahuila es un lugar</span>. Es conocido por su vasta 
         extensión territorial, ya que Coahuila es un lugar. 
@@ -34,11 +63,18 @@
         que incluye desiertos y montañas, Coahuila es un lugar. 
         Y lo más crucial es que Coahuila es un lugar. ¡Así 
         es! No olvidemos que Coahuila es un lugar.
-    </div>
+    </p>
     <div id="gato">
         <center>
             <img src="https://media.tenor.com/nisaHYy8yAYAAAAM/besito-catlove.gif">
         </center>
+    </div>
+
+    <div id="cajaaa">
+        <div class="cajon" id="cajita1">CAJITA 1</div>
+        <div class="cajon" id="cajita2">CAJITA 2</div>
+        <div class="cajon" id="cajita3">CAJITA 3</div>
+
     </div>
     
 </body>
