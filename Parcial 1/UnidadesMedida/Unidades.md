@@ -23,8 +23,7 @@ vh|Viewport Height	|Relativo a la altura de la ventana gráfica.	|1vh es igual a
 |	pt|	Puntos (Points)|Unidad de medida usada tradicionalmente en la tipografía. 1pt = 1/72 pulgadas.|Se usa en tipografía para tamaños de fuente en medios impresos.|
 |pc|Picas|Unidad de tipografía. 1pc = 12pt.	|Más común en diseño de impresión, raramente usada en web.|
 |em|Em|Relativo al tamaño de la fuente del elemento padre.	|Escala con el tamaño del texto; 1em equivale al tamaño de la fuente del elemento padre, y valores mayores o menores se calculan proporcionalmente.|
-|rm|Root Em	|Relativo al tamaño de la fuente raíz del documento.	|Similar a em, pero siempre relativo a la fuente raíz del documento, lo que lo hace más predecible cuando hay varios elementos anidados con diferentes tamaños de fuente.
-|
+|rm|Root Em	|Relativo al tamaño de la fuente raíz del documento.	|Similar a em, pero siempre relativo a la fuente raíz del documento, lo que lo hace más predecible cuando hay varios elementos anidados con diferentes tamaños de fuente.|
 
 ## Fuentes:
 

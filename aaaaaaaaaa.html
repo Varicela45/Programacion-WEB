@@ -8,31 +8,30 @@
 <style>
    
     #cajaaa{
-        display: flex;
         
     }
 
     .cajon{
-        height: 200px;
-        width: 200px;
-        flex-direction:row-reverse;
-        flex-wrap:initial;
-        flex-flow:row;
-        flex: 1;
+        width: 100px;
+        height: 50px;
+        
     }
 
     #cajita1{
         background-color: blue;
-        order: 2;
+        display: block;
+        
     }
 
     #cajita2{
         background-color: red;
-        order: 3;
+        display: inline;
+    
     }
 
     #cajita3{
         background-color: green;
+        display: inline;
     }
    
 
@@ -42,9 +41,37 @@
     }
 
     body{
-        margin-left: 5%;
+        margin-left: 15%;
         margin-right: 5%;
     }
+
+    .Caja{
+        border: 1px solid rgb(0, 0, 0);
+        background-color: rgb(56, 153, 130);
+        color: black;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        width: 120px;
+        height: 120px;
+        margin: 1px 5px;
+
+    }
+
+    .flex-container{
+        display: flex;
+        border: 1px solid rgb(0, 0, 0);
+        background-color: rgb(55, 156, 161);
+        padding: 20px;
+        height: 1000px;
+        flex-flow: row wrap;
+        justify-content:left;
+        align-items:flex-start;
+        align-content:space-between;
+    }
+
+
+
+    
+   
 
 </style>
 
@@ -69,13 +96,51 @@
             <img src="https://media.tenor.com/nisaHYy8yAYAAAAM/besito-catlove.gif">
         </center>
     </div>
-
     <div id="cajaaa">
         <div class="cajon" id="cajita1">CAJITA 1</div>
         <div class="cajon" id="cajita2">CAJITA 2</div>
         <div class="cajon" id="cajita3">CAJITA 3</div>
 
     </div>
+
+    <div class="Holaa">
+
+        <div id="cont1">
+            <p id="p1">Hola 1</p>
+            <p id="p2">Hola 2</p>
+        </div>
+
+        <div id="cont2">
+            <p id="p3">Hola 3</p>
+            <p id="p4">Hola 4</p>
+        </div>
+
+        <p id="p7">Hola 7</p>
+        <p id="p5">Hola 5</p>
+        <p id="p6">Hola 6</p>
+
+    </div>
+    <p>holaaa</p>
+    <p>hollaaa</p>
+    <div>k</div>
+    <p>ccd</p>
+
+    <ul class="menu">
+        <li><a href="">ded</a></li>
+    </ul>
+
+    <section class="flex-container">
+        <div class="Caja">Caja 1</div>
+        <div class="Caja">Caja 2</div>
+        <div class="Caja">Caja 3</div>
+        <div class="Caja">Caja 4</div>
+        <div class="Caja">Caja 5</div>
+
+    </section>
+
+
+
+
     
 </body>
 

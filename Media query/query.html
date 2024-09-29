@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0%;
+    }
+
+    .container{
+        width: 100vw;
+
+        display: flex;
+    }
+
+    .hijo{
+        border: 1px solid rgb(0, 0, 0);
+        background-color: aqua;
+        flex-grow: 1;
+        text-align: center
+    }
+
+    @media screen and (max-width:500px){
+        .container{
+            flex-direction: column;
+        }
+        
+
+    }
+
+
+</style>
+<body>
+    <div class="container">
+        <div class="hijo"><img src="https://media.tenor.com/DgD77x21m3IAAAAj/yume-nikki.gif" width="50px"></div>
+        <div class="hijo"><img src="https://media.tenor.com/DgD77x21m3IAAAAj/yume-nikki.gif" width="50px"></div>
+        <div class="hijo"><img src="https://media.tenor.com/DgD77x21m3IAAAAj/yume-nikki.gif" width="50px"></div>
+        <div class="hijo"><img src="https://media.tenor.com/DgD77x21m3IAAAAj/yume-nikki.gif" width="50px"></div>
+        <div class="hijo"><img src="https://media.tenor.com/DgD77x21m3IAAAAj/yume-nikki.gif" width="50px"></div>
+    </div>
+    
+</body>
+</html>
