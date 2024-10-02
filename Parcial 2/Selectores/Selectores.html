@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    table{
+        width: 100%;
+    }
+    table, td{
+        border: 2px solid blue;
+        border-collapse: collapse;
+        padding: 10px;
+        text-align: center;
+    }
+    tr:nth-child(1)
+    {
+        background-color: rgb(26, 131, 92); 
+    }
+    tr:nth-child(even)
+    {
+        background-color: rgb(29, 142, 146);
+    }
+    tr:nth-child(odd)
+    {
+        background-color: rgb(112, 188, 160);
+    }
+    tbody > tr:hover{
+        background-color: red;
+        color:white;
+    }
+    
+    @media screen and(max-width:500px){
+        table, tbody, thead, tr, td{
+            display: block;
+        }
+    }
+    
+</style>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>Materia</td>
+                <td>Lunes</td>
+                <td>Martes</td>
+                <td>Miercoles</td>
+                <td>Jueves</td>
+                <td>Viernes</td>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <tr>
+                <td>Programacion Web</td>
+                <td>7:00 - 8:00</td>
+                <td>7:00 - 8:00</td>
+                <td>7:00 - 8:00</td>
+                <td>7:00 - 8:00</td>
+                <td>7:00 - 8:00</td>
+             
+            </tr>
+            <tr>
+                <td>Taller de base de datos</td>
+                <td>8:00 - 10:00</td>
+                <td></td>
+                <td></td>
+                <td>8:00 - 10:00</td>
+                <td></td>
+             
+            </tr>
+            <tr>
+                <td>Sistemas Operativos</td>
+                <td></td>
+                <td></td>
+                <td>8:00 - 10:00</td>
+                <td></td>
+                <td>8:00 - 10:00</td>
+             
+            </tr>
+            <tr>
+                <td>Receso</td>
+                <td>10:00 - 11:00</td>
+                <td>10:00 - 11:00</td>
+                <td>10:00 - 11:00</td>
+                <td>10:00 - 11:00</td>
+                <td>10:00 - 11:00</td>
+             
+            </tr>
+            <tr>
+                <td>Arquitectura de computadoras</td>
+                <td>11:00 - 1:00</td>
+                <td></td>
+                <td>11:00 - 12:00</td>
+                <td></td>
+                <td>10:00 - 1:00</td>
+             
+            </tr>
+            <tr>
+                <td>Fundamentos de telecomunicaciones</td>
+                <td></td>
+                <td>11:00 - 1:00</td>
+                <td>11:00 - 11:00</td>
+                <td>11:00 - 11:00</td>
+                <td></td>
+             
+            </tr>
+            <tr>
+                <td>Ingenieria de Software</td>
+                <td>1:00 - 2:00</td>
+                <td>1:00 - 2:00</td>
+                <td>1:00 - 2:00</td>
+                <td>1:00 - 2:00</td>
+                <td>1:00 - 2:00</td>
+             
+            </tr>
+            <tr>
+                <td>Graficacion</td>
+                <td>2:00 - 3:00</td>
+                <td>2:00 - 3:00</td>
+                <td>2:00 - 3:00</td>
+                <td>2:00 - 3:00</td>
+                <td></td>
+             
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
