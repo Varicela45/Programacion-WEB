@@ -11,44 +11,313 @@
         margin: 0;
         padding: 0;
     }
-    table{
-        width: 100%;
+    #tabla1{
+        width: calc(100%);
     }
-    table, td{
-        border: 2px solid blue;
+    #tabla2{
+        display: none;
+    }
+    #tabla1, #tabla1 td{
+        border: 2px solid rgb(53, 221, 221);
         border-collapse: collapse;
-        padding: 10px;
+        padding: calc(50px) calc(20px);
         text-align: center;
     }
-    tr:nth-child(1)
-    {
-        background-color: rgb(26, 131, 92); 
+    #tabla1 thead tr td{
+        background-color: rgb(6, 64, 65); 
+        color: white;
     }
-    tr:nth-child(even)
+    #tabla1 tr:nth-child(even)
     {
         background-color: rgb(29, 142, 146);
     }
-    tr:nth-child(odd)
+    #tabla1 tr:nth-child(odd)
     {
         background-color: rgb(112, 188, 160);
     }
-    tbody > tr:hover{
-        background-color: red;
+    
+
+    tbody > tr >#web:hover{
+        background-image: url(https://i.pinimg.com/originals/ea/8b/13/ea8b137fbc46bea2f12cc9087e57053d.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+
+    tbody > tr >#SO:hover{
+        background-image: url(https://i.gifer.com/KHO.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#TBD:hover{
+        background-image: url(https://img.wattpad.com/e4b405f91cc7c873066fcca75bb465829fef1983/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f694b77616b377a58636f466c38673d3d2d3232353931343139332e313433373330613665623631636134652e676966);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#nada:hover{
+        background-image: url(https://media.tenor.com/SsXEN-yHFqgAAAAM/exploding-car-explode.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#AC:hover{
+        background-image: url(https://i.gifer.com/1VLK.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#Tele:hover{
+        background-image: url(https://i.gifer.com/4mlG.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#IS:hover{
+        background-image: url(https://usagif.com/wp-content/uploads/cat-typing-8.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#Graf:hover{
+        background-image: url(https://hidigitalera.wordpress.com/wp-content/uploads/2014/04/gato-con-ordenador_thumb.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    tbody > tr >#Re:hover{
+        background-image: url(https://i.pinimg.com/originals/03/fb/29/03fb298c0fcdc275bcfbc5a8cb5d4b3f.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(90px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:rgb(0, 0, 0);
+    }
+    tbody > tr >#web{
+        background-color: rgb(90, 122, 211);
+    }
+    tbody > tr >#SO{
+        background-color: rgb(208, 101, 117);
+    }
+    tbody > tr >#TBD{
+        background-color: rgb(133, 61, 182);
+    }
+    tbody > tr >#nada{
+        background-color: rgb(85, 145, 160);
+    }
+    tbody > tr >#AC{
+        background-color: rgb(108, 205, 147);
+    }
+    tbody > tr >#Tele{
+        background-color: rgb(200, 227, 141);
+    }
+    tbody > tr >#IS{
+        background-color: rgb(205, 108, 189);
+    }
+    tbody > tr >#Graf{
+        background-color: rgb(205, 165, 108);
+    }
+    tbody > tr >#Re{
+        background-color: rgb(29, 152, 87);
+    }
+
+
+
+@media (max-width: 600px) {
+    body{
+        background-image: url(https://i.pinimg.com/originals/ea/34/fb/ea34fb8540b7d5e88708d1be90ea87bf.gif);
+    }
+    #tabla1{
+        display: none;
+    }
+    #tabla2{
+        display:block;
+        width: calc(100%);
+        border: 2px solid rgb(53, 221, 221);
+        border-collapse: collapse;
+        text-align: center;
+        margin-top: 200px;
+    }
+    #tabla2 td{
+        border: 2px solid rgb(53, 221, 221);
+        border-collapse: collapse;
+        padding: calc(50px) calc(20px);
+        width: 600px;
+        height: calc(100px);
+        text-align: center;
+    }
+    #web{
+        background-color: rgb(90, 122, 211);
+        text-align: center;
+    }
+    #SO{
+        background-color: rgb(208, 101, 117);
+    }
+    #TBD{
+        background-color: rgb(133, 61, 182);
+    }
+    #nada{
+        background-color: rgb(85, 145, 160);
+    }
+    #AC{
+        background-color: rgb(108, 205, 147);
+    }
+    #Tele{
+        background-color: rgb(200, 227, 141);
+    }
+    #IS{
+        background-color: rgb(205, 108, 189);
+    }
+    #Graf{
+        background-color: rgb(205, 165, 108);
+    }
+    #Re{
+        background-color: rgb(29, 152, 87);
+    }
+    
+    #web:hover{
+        background-image: url(https://i.gifer.com/KHO.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        text-align: center;
+        color:white;
+    }
+
+    #SO:hover{
+        background-image: url(https://i.gifer.com/KHO.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    #TBD:hover{
+        background-image: url(https://img.wattpad.com/e4b405f91cc7c873066fcca75bb465829fef1983/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f776174747061642d6d656469612d736572766963652f53746f7279496d6167652f694b77616b377a58636f466c38673d3d2d3232353931343139332e313433373330613665623631636134652e676966);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    #nada:hover{
+        background-image: url(https://media.tenor.com/SsXEN-yHFqgAAAAM/exploding-car-explode.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
         color:white;
     }
     
-    @media screen and(max-width:500px){
-        table, tbody, thead, tr, td{
-            display: block;
-        }
+    #AC:hover{
+        background-image: url(https://i.gifer.com/1VLK.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
     }
+    
+    #Tele:hover{
+        background-image: url(https://i.gifer.com/4mlG.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    #IS:hover{
+        background-image: url(https://usagif.com/wp-content/uploads/cat-typing-8.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    #Graf:hover{
+        background-image: url(https://hidigitalera.wordpress.com/wp-content/uploads/2014/04/gato-con-ordenador_thumb.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:white;
+    }
+    #Re:hover{
+        background-image: url(https://i.pinimg.com/originals/03/fb/29/03fb298c0fcdc275bcfbc5a8cb5d4b3f.gif);
+        background-position: center;
+        background-size: cover;
+        padding: calc(180px) calc(50px);
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: italic bold;
+        font-weight: 300;
+        color:rgb(0, 0, 0);
+    }
+    .tabla2 p{
+        padding: calc(30px) calc(10px);
+    }
+
+
+}
+    
+    
     
 </style>
 <body>
-    <table>
+    <table id="tabla1">
         <thead>
             <tr>
-                <td>Materia</td>
+                <td id="hora">Materia</td>
                 <td>Lunes</td>
                 <td>Martes</td>
                 <td>Miercoles</td>
@@ -59,78 +328,121 @@
         <tbody>
            
             <tr>
-                <td>Programacion Web</td>
-                <td>7:00 - 8:00</td>
-                <td>7:00 - 8:00</td>
-                <td>7:00 - 8:00</td>
-                <td>7:00 - 8:00</td>
-                <td>7:00 - 8:00</td>
+                <td class="C1" id="hora">7:00 - 8:00</td>
+                <td class="C2" id="web">Programacion Web</td>
+                <td class="C3" id="web">Programacion Web</td>
+                <td class="C4" id="web">Programacion Web</td>
+                <td class="C5" id="web">Programacion Web</td>
+                <td class="C6" id="web">Programacion Web</td>
              
             </tr>
             <tr>
-                <td>Taller de base de datos</td>
-                <td>8:00 - 10:00</td>
-                <td></td>
-                <td></td>
-                <td>8:00 - 10:00</td>
-                <td></td>
+                <td class="C1" id="hora">8:00 - 9:00</td>
+                <td class="C2" rowspan="2" id="TBD">Taller de base de datos</td>
+                <td class="C3" rowspan="2" id="nada"></td>
+                <td class="C4" rowspan="2" id="SO">Sistemas operativos</td>
+                <td class="C5" rowspan="2" id="TBD">Taller de base de datos</td>
+                <td class="C6" rowspan="2" id="SO">Sistemas operativos</td>
              
             </tr>
             <tr>
-                <td>Sistemas Operativos</td>
-                <td></td>
-                <td></td>
-                <td>8:00 - 10:00</td>
-                <td></td>
-                <td>8:00 - 10:00</td>
+                <td id="hora">9:00 - 10:00</td>
+ 
+                
              
             </tr>
             <tr>
-                <td>Receso</td>
-                <td>10:00 - 11:00</td>
-                <td>10:00 - 11:00</td>
-                <td>10:00 - 11:00</td>
-                <td>10:00 - 11:00</td>
-                <td>10:00 - 11:00</td>
+                <td class="C1" id="hora">10:00 - 11:00</td>
+                <td class="C2" id="Re">Receso</td>
+                <td class="C3" id="Re">Receso</td>
+                <td class="C4" id="Re">Receso</td>
+                <td class="C5" id="Re">Receso</td>
+                <td class="C6" id="Re">Receso</td>
              
             </tr>
             <tr>
-                <td>Arquitectura de computadoras</td>
-                <td>11:00 - 1:00</td>
-                <td></td>
-                <td>11:00 - 12:00</td>
-                <td></td>
-                <td>10:00 - 1:00</td>
+                <td class="C1" id="hora">11:00 - 12:00</td>
+                <td class="C2" rowspan="2" id="AC">Arquitectura de computadoras</td>
+                <td class="C3" rowspan="2" id="Tele">Fundamento de Telecomunicaciones</td>
+                <td class="C4" id="Tele">Fundamento de Telecomunicaciones</td>
+                <td class="C5" id="Tele">Fundamento de Telecomunicaciones</td>
+                <td class="C6" rowspan="2" id="AC">Arquitectura de computadoras</td>
              
             </tr>
             <tr>
-                <td>Fundamentos de telecomunicaciones</td>
-                <td></td>
-                <td>11:00 - 1:00</td>
-                <td>11:00 - 11:00</td>
-                <td>11:00 - 11:00</td>
-                <td></td>
+                <td id="hora">12:00 - 1:00</td>
+                <td class="C4" id="AC">Arquitectura de computadoras</td>
+                <td class="C5" id="nada"></td>
              
             </tr>
             <tr>
-                <td>Ingenieria de Software</td>
-                <td>1:00 - 2:00</td>
-                <td>1:00 - 2:00</td>
-                <td>1:00 - 2:00</td>
-                <td>1:00 - 2:00</td>
-                <td>1:00 - 2:00</td>
+                <td id="hora">1:00 - 2:00</td>
+                <td class="C2" id="IS">Ingenieria de software</td>
+                <td class="C3" id="IS">Ingenieria de software</td>
+                <td class="C4" id="IS">Ingenieria de software</td>
+                <td class="C5" id="IS">Ingenieria de software</td>
+                <td class="C6" id="IS">Ingenieria de software</td>
              
             </tr>
             <tr>
-                <td>Graficacion</td>
-                <td>2:00 - 3:00</td>
-                <td>2:00 - 3:00</td>
-                <td>2:00 - 3:00</td>
-                <td>2:00 - 3:00</td>
-                <td></td>
+                <td id="hora">2:00 - 3:00</td>
+                <td class="C2" id="Graf">Graficacion</td>
+                <td class="C3" id="Graf">Graficacion</td>
+                <td class="C4" id="Graf">Graficacion</td>
+                <td class="C5" id="Graf">Graficacion</td>
+                <td class="C6" id="nada"></td>
              
             </tr>
         </tbody>
     </table>
+
+    <div class="tabla2">
+            <p id="dia">Lunes</p>
+            <p id="web">Programacion web</p>
+            <p id="TBD">Taller de base de datos</p>
+            <p id="Re">Receso</p>
+            <p id="AC">Arquitectura de Computadoras</p>
+            <p id="IS">Ingenieria de software</p>
+            <p id="Graf">Graficacion</p>
+    </div>
+    <div class="tabla2">
+            <p id="dia">Martes</p>
+            <p id="web">Programacion web</p>
+            <p id="nada">Libre</p>
+            <p id="Re">Receso</p>
+            <p id="Tele">Fundamentos de Telecomuniaciones</p>
+            <p id="IS">Ingenieria de software</p>
+            <p id="Graf">Graficacion</p>
+    </div>
+    <div class="tabla2">
+        <p id="dia">Miercoles</p>
+        <p id="web">Programacion web</p>
+        <p id="SO">Sistemas Opetativos</p>
+        <p id="Re">Receso</p>
+        <p id="Tele">Fundamentos de Telecomuniaciones</p>
+        <p id="AC">Arquitectura de Computadoras</p>
+        <p id="IS">Ingenieria de software</p>
+        <p id="Graf">Graficacion</p>
+    </div>
+    <div class="tabla2">
+        <p id="dia">Jueves</p>
+        <p id="web">Programacion web</p>
+        <p id="TBD">Taller de base de datos</p>
+        <p id="Re">Receso</p>
+        <p id="Tele">Fundamentos de Telecomuniaciones</p>
+        <p id="nada">Libre</p>
+        <p id="IS">Ingenieria de software</p>
+        <p id="Graf">Graficacion</p>
+    </div>
+    <div class="tabla2">
+        <p id="dia">Lunes</p>
+        <p id="web">Programacion web</p>
+        <p id="SO">Sistemas Operativos</p>
+        <p id="Re">Receso</p>
+        <p id="AC">Arquitectura de Computadoras</p>
+        <p id="IS">Ingenieria de software</p>
+        <p id="Graf">Graficacion</p>
+    </div>
+
 </body>
 </html>
