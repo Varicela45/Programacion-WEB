@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="miForm" enctype="multipart/form-data">
+
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" required>
+        <br><br>
+
+        <label for="imagen">Subir Imagen (PNG):</label>
+        <input type="file" id="imagen" name="imagen" accept="image/png" required>
+        <br><br>
+
+        <button type="button" id="btnEnviar">Enviar</button>
+
+    </form>
+
+    <script>
+
+        document.getElementById('btnEnviar').addEventListener("click", async () => {
+            const formElement = document.getElementById('miForm');
+            const formData = new FormData(formElement); 
+
+            try {
+                const response = await fetch('http://localhost:8082/formulario', {
+                    method: 'POST',
+                    body: formData, 
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error en la solicitud: ${response.status}`);
+                }
+
+                alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
+            } catch (error) {
+                console.error('Error al enviar datos:', error);
+                alert('Error al generar el PDF.');
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
