@@ -5,46 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        background-color:antiquewhite;
+   }
+
+    #portada{
+        width: calc(100%);
+        margin:0px 0px 30px 0px;
+        height: 200px;
+        color: white;
+        text-align: center;
+        background-size: 16%; 
+        background-image: url(https://live.staticflickr.com/32/44219914_e09569dab4_c.jpg)
+    }
+
+    #miForm{
+        margin:20px 20px 50px 50px
+    }
+
+    #title{
+        margin:10px 10px 0px 0px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .barra {
+        background-color: #fff;
+        border-radius: 5px; 
+        align-items: center;
+
+    }
+
+    .labelito{
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(213, 96, 50);
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    #btnEnviar{
+        background-color: rgb(218, 142, 114);
+        color: white;
+        width: 90px;
+        height: 50px;
+        
+    }
+
+</style>
 <body>
+
+    <div id="portada"></div>
+    img
+    <h1 id="title">Galletas Enterprises</h1>
+
     <form id="miForm" enctype="multipart/form-data">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+        <label class="labelito"  for="nombre">Nombre:</label>
+        <input class="barra" type="text" id="nombre" name="nombre" required>
         <br><br>
 
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" required>
+        <label class="labelito"  for="precio">Precio:</label>
+        <input class="barra" type="text" id="precio" name="precio" required>
         <br><br>
 
-        <label for="imagen">Subir Imagen (PNG):</label>
-        <input type="file" id="imagen" name="imagen" accept="image/png" required>
+        <label class="labelito" for="correo">Correo:</label>
+        <input class="barra" type="email" id="correo" name="correo" required>
         <br><br>
 
+        <label class="labelito" for="marca">Marca:</label>
+        <input class="barra" type="text" id="marca" name="marca" required>
+        <br><br>
+
+        <label class="labelito" for="imagen">Subir Imagen (PNG):</label>
+        <input class="labelito" type="file" id="imagen" name="imagen" accept="image/png" required>
+        <br><br>
+
+        <label class="labelito"  for="ID">ID:</label>
+        <input class="barra" type="text" id="ID" name="ID" required>
+        <br><br>
+
+        <button type="button" id="btnGET">Holaaaa</button>
         <button type="button" id="btnEnviar">Enviar</button>
 
     </form>
 
     <script>
 
-        document.getElementById('btnEnviar').addEventListener("click", async () => {
+document.getElementById('btnEnviar').addEventListener("click", async () => {
             const formElement = document.getElementById('miForm');
-            const formData = new FormData(formElement); 
+            const formData = new FormData(formElement);
 
             try {
-                const response = await fetch('http://localhost:8082/formulario', {
+                const response = await fetch('http://localhost:4000/formulario', {
                     method: 'POST',
-                    body: formData, 
+                    body: formData,
                 });
 
+                console.log('Respuesta del servidor:', response);
+
                 if (!response.ok) {
-                    throw new Error(`Error en la solicitud: ${response.status}`);
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    return;
                 }
+
+                const data = await response.json();
+                console.log('Datos recibidos:', data);
 
                 alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
             } catch (error) {
-                console.error('Error al enviar datos:', error);
-                alert('Error al generar el PDF.');
+                console.error('Error al enviar datos:', error.message);
+                alert(`Error al generar el PDF. Detalle: ${error.message}`);
             }
+        });
+
+        document.getElementById('btnGET').addEventListener("click", async () => {
+                let id = document.getElementById("ID").value;
+                let url = `http://localhost:4000/formulario/?ID=${id}`;
+
+                try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    
+                });
+
+                console.log('Respuesta del servidor:', response);
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    return;
+                }
+
+                const data = await response.json();
+                console.log('Datos recibidos:', data);
+
+            } catch (error) {
+                console.error('Error al enviar datos:', error.message);
+                alert(`Error al generar el PDF. Detalle: ${error.message}`);
+            }
+
+                console.log(id);
+                console.log(url)
+
         });
         
     </script>

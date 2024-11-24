@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+</head>
+<style>
+    
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        background-color:antiquewhite;
+   }
+
+    #portada{
+        width: calc(100%);
+        margin:0px 0px 30px 0px;
+        height: 200px;
+        color: white;
+        text-align: center;
+        background-size: 16%; 
+        background-image: url(https://live.staticflickr.com/32/44219914_e09569dab4_c.jpg)
+    }
+
+    #miForm{
+        margin:20px 20px 50px 50px
+    }
+
+    #title{
+        margin:10px 10px 0px 0px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .barra {
+        background-color: #fff;
+        border-radius: 5px; 
+        align-items: center;
+
+    }
+
+    .labelito{
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(213, 96, 50);
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .btn{
+        background-color: rgb(218, 142, 114);
+        color: white;
+        width: 90px;
+        height: 50px;
+        
+    }
+
+</style>
+<body>
+
+    <div id="portada"></div>
+    img
+    <h1 id="title">Galletas Enterprises</h1>
+
+    <form id="miForm" enctype="multipart/form-data">
+
+        <label class="labelito"  for="nombre">Nombre:</label>
+        <input class="barra" type="text" id="nombre" name="nombre" required>
+        <br><br>
+
+        <label class="labelito"  for="edad">Edad:</label>
+        <input class="barra" type="text" id="edad" name="edad" required>
+        <br><br>
+
+        <label class="labelito" for="correo">Correo:</label>
+        <input class="barra" type="email" id="correo" name="correo" required>
+        <br><br>
+
+        <label class="labelito" for="pais">Pais:</label>
+        <input class="barra" type="text" id="pais" name="pais" required>
+        <br><br>
+
+        <label class="labelito" for="imagen">Subir Imagen (PNG):</label>
+        <input class="labelito" type="file" id="imagen" name="imagen" accept="image/png" required>
+        <br><br>
+
+        <label class="labelito"  for="ID">ID:</label>
+        <input class="barra" type="text" id="ID" name="ID" required>
+        <br><br>
+
+        <button type="button" class="btn" id="btnGET">Mostrar</button>
+        <button type="button" class="btn" id="btnDELETE">Eliminar</button>
+        <button type="button" class="btn" id="btnUPDATE">Actualizar</button>
+        <button type="button" class="btn" id="btnEnviar">Crear</button>
+
+    </form>
+
+    <script>
+
+        document.getElementById('btnEnviar').addEventListener("click", async () => {
+            const formElement = document.getElementById('miForm');
+            const formData = new FormData(formElement);
+
+            try {
+                const response = await fetch('http://localhost:3000/formulario', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                // Manejo de respuesta
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+
+                    // Ventana para mostrar errores de validación
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Errores de validación',
+                        html: mensajesErrores.replace(/\n/g, '<br>'), // Reemplaza saltos de línea con <br>
+                    });
+                    return;
+                }
+
+                const data = await response.json();
+
+                // Mostrar mensaje si se generó el PDF
+                if (data.pdfUrl) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'PDF Generado',
+                        text: 'El PDF se generó correctamente. Será abierto en una nueva pestaña.',
+                    }).then(() => {
+                        // Abrir PDF después de cerrar la alerta
+                        window.open(data.pdfUrl, '_blank');
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'PDF no encontrado',
+                        text: 'Se insertaron los datos, pero no se generó el PDF.',
+                    });
+                }
+            } catch (error) {
+                // Ventana para errores de conexión u otros
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error al procesar',
+                    text: `Hubo un error: ${error.message}`,
+                });
+            }
+        });
+
+
+        document.getElementById('btnGET').addEventListener("click", async () => {
+                let id = document.getElementById("ID").value;
+                let url = `http://localhost:3000/formulario/?ID=${id}`;
+
+                try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    
+                });
+
+                console.log('Respuesta del servidor:', response);
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    return;
+                }
+
+                const data = await response.json();
+                console.log('Datos recibidos:', data);
+
+            } catch (error) {
+                console.error('Error al enviar datos:', error.message);
+                alert(`Error al generar el PDF. Detalle: ${error.message}`);
+            }
+
+                console.log(id);
+                console.log(url)
+
+        });
+
+        document.getElementById('btnDELETE').addEventListener("click", async () => {
+            let id = document.getElementById("ID").value;
+            let url = `http://localhost:3000/formulario/?ID=${id}`;
+
+            if (!id) {
+                alert('Por favor, ingresa un ID válido.');
+                return;
+            }
+
+            try {
+                const response = await fetch(url, {
+                    method: 'DELETE',
+                });
+
+                console.log('Respuesta del servidor:', response);
+
+                // Manejo de errores HTTP
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    return;
+                }
+
+                // Intenta parsear el JSON correctamente
+                const data = await response.json();
+                console.log('Datos recibidos:', data);
+
+                alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
+            } catch (error) {
+                console.error('Error al enviar datos:', error.message);
+                alert(`Error al generar el PDF. Detalle: ${error.message}`);
+            }
+        });
+
+        document.getElementById('btnUPDATE').addEventListener("click", async () => {
+            const formElement = document.getElementById('miForm');
+            const formData = new FormData(formElement);
+
+            // Obtener el ID del formulario o de un campo oculto si ya está disponible
+            let id = document.getElementById('ID').value;  // Asumiendo que userID es un campo oculto
+
+            try {
+                const response = await fetch(`http://localhost:3000/formulario/?ID=${id}`, {
+                    method: 'PUT',  // Cambiar de POST a PUT
+                    body: formData,
+                });
+
+                console.log('Respuesta del servidor:', response);
+
+                // Manejo de errores HTTP
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    return;
+                }
+
+                // Intenta parsear el JSON correctamente
+                const data = await response.json();
+                console.log('Datos actualizados:', data);
+
+                alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
+            } catch (error) {
+                alert(`Error al generar el PDF. Detalle: ${error.message}`);
+            }
+        });
+
+
+        
+    </script>
+</body>
+
+</html>
