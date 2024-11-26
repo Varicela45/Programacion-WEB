@@ -53,192 +53,159 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+
 app.post(
     '/formulario',
-    upload.single('imagen'),
     [
-        check('edad', 'La edad debe ser numérica').isNumeric(),
-        check('edad', 'La casilla de edad está vacía').notEmpty(),
-        check('nombre', 'La casilla de nombre está vacía').notEmpty(),
-        check('pais', 'La casilla de país está vacía').notEmpty(),
-        check('correo', 'La casilla de correo está vacía').notEmpty(),
-        check('correo', 'El correo no es válido').isEmail(),
+        check('nombre', 'El nombre es obligatorio').notEmpty(),
+        check('edad', 'La edad es obligatoria y debe ser un número').isNumeric(),
+        check('correo', 'El correo es obligatorio y debe ser válido').isEmail(),
+        check('pais', 'El país es obligatorio').notEmpty(),
+        check('imagen', 'Debe seleccionar una imagen').notEmpty(),
     ],
     async (req, res) => {
+        const result = validationResult(req);
+
+        if (!result.isEmpty()) {
+            return res.status(400).json({ errors: result.array() });
+        }
+
+        const { nombre, edad, correo, pais, imagen } = req.body;
+
         try {
-            const result = validationResult(req);
-
-            if (!result.isEmpty()) {
-                // Enviar errores de validación al cliente
-                return res.status(400).json({ errors: result.array() });
-            }
-
-            const { nombre, edad, pais, correo } = req.body;
-            const imagenPath = req.file ? req.file.path : null;
-            const pdfFileName = `PDF-${Date.now()}.pdf`;
-
-            // Insertar datos en la base de datos
             const query = `
-                INSERT INTO Usuarios (Nombre, Correo, Edad, Imagen, Pais, PDF)
-                VALUES (?, ?, ?, ?, ?, ?)
+                INSERT INTO Usuarios (Nombre, Correo, Edad, Imagen, Pais)
+                VALUES (?, ?, ?, ?, ?)
             `;
-            const values = [nombre, correo, edad, imagenPath, pais, pdfFileName];
+            const values = [nombre, correo, edad, imagen, pais, 'hey'];
             const [dbResult] = await pool.query(query, values);
 
-            console.log('Usuario insertado con ID:', dbResult.insertId);
+            const nuevoUsuario = {
+                ID: dbResult.insertId, 
+                nombre,
+                edad,
+                correo,
+                pais,
+                imagen,
+            };
 
-            // Crear el PDF
-            const doc = new jsPDF();
-            const Ancho = doc.internal.pageSize.getWidth();
-            const x = Ancho / 2;
+            console.log(dbResult.insertId)
 
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(16);
-            doc.text('Si tú fueras una galleta', 10, 10);
-
-            doc.setFontSize(12);
-            doc.text(`Nombre: ${nombre}`, 140, 30);
-            doc.text(`Edad: ${edad} años`, 140, 40);
-            doc.text(`País: ${pais}`, 140, 50);
-            doc.text(`Correo: ${correo}`, 140, 60);
-
-            if (imagenPath) {
-                const imgData = fs.readFileSync(imagenPath, 'base64');
-                const imgBase64 = `data:image/png;base64,${imgData}`;
-                doc.addImage(imgBase64, 'PNG', 10, 10, 60, 60);
-            }
-
-            const pdfPath = path.join(__dirname, "/archivos/", pdfFileName);
-            const pdfURL = `http://localhost:3000/public/${pdfFileName}`;
-            doc.save(pdfPath);
-
-            res.json({ message: 'PDF generado correctamente', pdfUrl: pdfURL });
+            res.status(200).json(nuevoUsuario); 
         } catch (error) {
-            console.error('Error en el servidor:', error.message);
-            res.status(500).json({ error: 'Hubo un error en el servidor.' });
+            console.error('Error al insertar en la base de datos:', error);
+            res.status(500).json({
+                errors: [{ msg: 'Error al crear el usuario.' }],
+            });
         }
     }
 );
 
 
+
+
 app.get('/formulario', async (req, res) => {
-    
-    const { ID } = req.query; 
-   
+    const { ID } = req.query;
+
     if (!ID) {
         return res.status(400).json({ errors: [{ msg: 'El parámetro ID es requerido' }] });
     }
 
     try {
-        const [rows] = await pool.query('SELECT ID, Nombre, Edad, Pais, Correo FROM Usuarios WHERE id = ?', [ID]);
+        const [rows] = await pool.query('SELECT ID, Nombre, Edad, Pais, Correo, Imagen FROM Usuarios WHERE ID = ?', [ID]);
 
         if (rows.length === 0) {
             return res.status(404).json({ errors: [{ msg: 'Usuario no encontrado' }] });
         }
 
-        res.status(200).json(rows[0]);
+        const usuario = rows[0];
+
+        res.status(200).json({
+            id: usuario.ID,
+            nombre: usuario.Nombre,
+            edad: usuario.Edad,
+            pais: usuario.Pais,
+            correo: usuario.Correo,
+            imagen: usuario.Imagen || null, 
+        });
     } catch (error) {
         console.error('Error al consultar la base de datos:', error);
         res.status(500).json({ errors: [{ msg: 'Error interno del servidor' }] });
     }
-
 });
 
 app.delete('/formulario', async (req, res) => {
-    
-    const { ID } = req.query; 
-   
+    const { ID } = req.body; 
+
     if (!ID) {
-        return res.status(400).json({ errors: [{ msg: 'El parámetro ID es requerido' }] });
+        return res.status(400).json({
+            errors: [{ msg: 'El ID es obligatorio.' }],
+        });
     }
 
     try {
-        const [rows1] = await pool.query('SELECT * FROM Usuarios WHERE id = ?', [ID]);
+        const query = 'DELETE FROM Usuarios WHERE ID = ?';
+        const values = [ID];
+        const [result] = await pool.query(query, values);
 
-        if (rows1.length === 0) {
-            return res.status(404).json({ errors: [{ msg: 'Usuario no encontrado' }] });
+        // Verificar si se eliminó el usuario
+        if (result.affectedRows > 0) {
+            return res.status(200).json({
+                message: `Usuario con ID ${ID} eliminado correctamente.`,
+            });
+        } else {
+            return res.status(404).json({
+                errors: [{ msg: `No se encontró un usuario con el ID ${ID}.` }],
+            });
         }
-
-        const [rows2] = await pool.query('DELETE FROM Usuarios WHERE id = ?', [ID]);
-
-        res.status(200).json({ message: 'Usuario eliminado correctamente' });
-
     } catch (error) {
-        console.error('Error al consultar la base de datos:', error);
-        res.status(500).json({ errors: [{ msg: 'Error interno del servidor' }] });
+        console.error('Error al eliminar el usuario:', error);
+        return res.status(500).json({
+            errors: [{ msg: 'Hubo un problema al intentar eliminar el usuario.' }],
+        });
     }
-
 });
 
-app.put('/formulario', upload.single('imagen'), [check('edad', 'La edad debe ser numerica').isNumeric(),
+
+
+
+app.put('/formulario', upload.single('imagen'), [
+    check('edad', 'La edad debe ser numerica').isNumeric(),
     check('edad', 'Casilla vacia').notEmpty(),
     check('nombre', 'Casilla vacia').notEmpty(),
     check('pais', 'Casilla vacia').notEmpty(),
     check('correo', 'Casilla vacia').notEmpty(),
     check('correo', 'El correo no es correcto').isEmail(),
-    
+    check('imagen', 'Debe seleccionar una imagen').notEmpty(),
+
 ], async (req, res) => {
-
     const result = validationResult(req);
+    if (result.isEmpty()) {
+        const { ID, nombre, edad, pais, correo, imagen } = req.body;
 
-    if (result.isEmpty()){
-    const { ID, nombre, edad, pais, correo } = req.body; 
-    const imagenPath = req.file ? req.file.path : null; 
+        const query = `UPDATE Usuarios SET Nombre = ?, Correo = ?, Edad = ?, Imagen = ?, Pais = ? WHERE ID = ?`;
+        const values = [nombre, correo, edad, imagen, pais, ID];
+        await pool.query(query, values);
 
+        const [userResult] = await pool.query(`SELECT * FROM Usuarios WHERE ID = ?`, [ID]);
 
-    // Guarda los datos en la base de datos
-    const query = `UPDATE Usuarios SET Nombre = ?, Correo = ?, Edad = ?, Imagen = ?, Pais = ?, PDF = ? WHERE ID = ${ID} `;
-    const values = [nombre, correo, edad, imagenPath, pais, pdfFileName];
+        const usuario = userResult[0];
 
-    const [result] = await pool.query(query, values);
-    console.log('Se ha modificado elusuario:', result.insertId);
-
-
-    const doc = new jsPDF();
-
-    const Ancho = doc.internal.pageSize.getWidth();
-    const x = Ancho / 2;
-
-    doc.setFont('helvetica', 'normal');
-
-    doc.setFontSize(16);
-    doc.text('Si tu fueras una galleta', 10, 10);
-
-    doc.setFontSize(12);
-    doc.text(`Nombre: ${nombre}`, 140, 30);
-    doc.text(`Precio: ${edad} años`, 140, 40);
-    doc.text(`Marca: ${pais}`, 140, 50);
-    doc.text(`Correo: ${correo}`, 140, 60);
-
-    if (imagenPath) {
-    const imgData = fs.readFileSync(imagenPath, 'base64');
-    const imgBase64 = `data:image/png;base64,${imgData}`;
-
-    doc.addImage(imgBase64, 'PNG', 10, 10, 60, 60);
+        res.status(200).json({
+            id: usuario.ID,
+            nombre: usuario.Nombre,
+            edad: usuario.Edad,
+            pais: usuario.Pais,
+            correo: usuario.Correo,
+            imagen: usuario.Imagen || null, 
+        });
+    } else {
+        res.status(400).json({ errors: result.array() });
+        if (req.file) {
+            fs.unlinkSync(req.file.path); 
+        }
     }
-
-    const pdfPath = path.join(__dirname, "/archivos/", pdfFileName);
-
-    doc.save(pdfPath); 
-
-    res.json({ message: "PDF generado correctamente", pdfPath });
-    }
-
-    else{
-    res.status(400).json({ errors: result.array() });
-    fs.unlinkSync(req.file.path);
-    console.log('Valio queso.');
-    }
-
 });
-
-
-
-
-
-
-
-
 
 
 (async () => {

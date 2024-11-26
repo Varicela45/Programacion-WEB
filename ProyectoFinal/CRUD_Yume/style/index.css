@@ -1,0 +1,392 @@
+ 
+
+
+    *{
+        cursor: url('../Perfiles/Estilos/cursor.gif'), auto !important;
+        box-sizing: border-box;
+        margin: 0%;
+        padding: 0%;
+    }
+
+    
+    .contenedor{
+        display:grid;
+        width: 100vw;
+        height: 100vh;
+        grid-template-columns: 29% 34% 37%;
+        grid-template-rows: 20% 10% 35% 80%;
+        background-color: rgb(23, 32, 32);
+        grid-template-areas: "enca enca enca"
+                             "barra conte conte"
+                             "barra conte conte"
+                             "conte2 conte2 conte3";
+    }
+    
+    #one{
+        background-color: rgb(0, 0, 0);        
+        grid-area: enca;
+                
+    }
+
+    #two{
+        background-image: url(../Perfiles/Pantallas/descargar.gif);
+        grid-area: barra;
+        background-position: center; 
+        background-size: cover; 
+        background-repeat: no-repeat; 
+        font-weight: bold; 
+        text-align: center;
+        border-color: rgb(73, 9, 44);
+        border-style:ridge;
+    }
+    
+
+    #three{
+        background-color: rgb(40, 109, 74);
+        grid-area: conte;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        text-align: justify;
+        color: rgb(255, 255, 255); 
+        
+    }
+
+    #three p{
+        margin: calc(10%);
+
+    }
+
+    #four{
+        grid-area: conte2;
+        background-color: rgb(66, 124, 72);
+        font-weight: bold; 
+        text-align:start;
+        color: rgb(0, 0, 0); 
+
+    }
+
+    #five{
+        background-image: url(../Perfiles/Pantallas/descargar\ \(1\).gif);
+        grid-area: conte3;
+        background-position: center; 
+        background-size: cover; 
+        font-weight: bold; 
+        text-align: center;
+        color: rgb(0, 0, 0); 
+    }
+
+    #six{
+        background-color: rgb(26, 85, 33);        
+        grid-area: conte4;
+        
+    }
+
+    .container {
+        height: calc(100%);
+        width: calc(100%);
+        overflow: hidden;
+        font-family: sans-serif;
+
+    }
+    .palette {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+    .color {
+        height: 90%;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: flex 0.1s linear;
+    }
+    .color span {
+        opacity: 0;
+        transition: opacity 0.1s linear;
+    }
+    #stats {
+        height: 19%;
+        width: 100%;
+        background: rgb(73, 9, 44);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.5em;
+        box-sizing: border-box;
+        color: #bebebe;
+    }
+    .color:nth-child(1) {
+        background-image: url(../Perfiles/Estilos/miedo.gif);
+        background-position: center; 
+        background-size: cover; 
+    }
+    .color:nth-child(2) {
+        background-image: url(../Perfiles/Estilos/aventura.gif);
+        background-position: center; 
+        background-size: cover;     
+    }
+    .color:nth-child(3) {
+        background-image: url(../Perfiles/Estilos/sueño.gif);
+        background-position: center; 
+        background-size: cover;     }
+    .color:nth-child(4) {
+        background-image: url(../Perfiles/Estilos/trauma.gif);
+        background-position: center; 
+        background-size: cover; 
+    }
+    .color:nth-child(5) {
+        background-image: url(../Perfiles/Estilos/Diversion.gif);
+        background-position: center; 
+        background-size: cover; 
+    }
+    .color:hover {
+        flex: 2;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    .color:hover span {
+        opacity: 1;
+    }
+
+    
+    #title{
+        margin-left: calc(30%);
+        margin-right: calc(30%);
+        width: calc(21%);
+        float:left
+        
+    }
+
+    #gif1{
+        float: left;
+        width: calc(9%);
+    }
+
+    #gif2{
+        float: right;
+        width: calc(9%);
+    }
+
+    #img1{
+        float: left;
+        width: calc(30%);
+        margin: calc(7%);
+    }
+
+    #img1:hover{
+        transform: scale(1.2);
+        background-image: url(../img/LSD.gif);
+        transition: all 0.2s ease;
+    }
+
+       
+    
+
+    #juego{
+        display: block;
+        height: calc();
+        width: calc(100%);
+        background: rgb(73, 9, 44);
+        align-items: center;
+        box-sizing: border-box;
+        color: #bebebe;
+    }
+
+    #caratula{
+        width: calc(100%);
+        display: block;
+    }
+
+    .cajita{
+        display: block;
+        color: white;
+        font-weight:lighter;
+        text-align: left;
+    }
+
+    .cajita span{
+        font-weight: bold;
+        background: #cf617c;
+    }
+    
+    .sub{
+        background: rgb(73, 9, 44);
+        color: white;
+    }
+
+   
+
+    .Foto{
+        display: inline-block;
+        width: calc(130px);
+        height: calc(180px);
+        
+        margin: calc(4%);
+    }
+
+    
+
+    #miForm{
+        margin:20px 20px 50px 50px
+    }
+
+
+    .barra {
+        background-color: #fff;
+        border-radius: 5px; 
+        align-items:start
+
+    }
+
+    .labelito{
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(162, 234, 164);
+        font-weight: bold;
+        font-style: italic;
+        text-align: left;
+    }
+
+    .btn{
+        background-color: rgb(91, 88, 62);
+        color: white;
+        width: 90px;
+        height: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .galeria {
+        display: grid;
+        grid-template-columns: calc(33%) calc(33%) calc(33%) ;
+        row-gap: 15px; 
+        column-gap: 11px; 
+        background-color: #84a58a;
+        padding: 20px;
+        border-radius: 18px;
+        margin: 40px;
+    }
+
+    .galeria .opcion {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        cursor: pointer;
+        transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .galeria .opcion:hover {
+        transform: scale(1.1);
+    }
+
+    .galeria .opcion.seleccionada {
+        border-color: #007bff;
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+
+    #UStitulo{
+        margin-top: 5%;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    #USfoto{
+        height: 200px;
+        width: 200px;
+        margin: 5%;
+    }
+
+    #USgif1{
+        height: 100px;
+        width: 100px;
+        float: left;
+        width: calc(19%);
+    }
+
+    #USgif2{
+        height: 100px;
+        width: 100px;
+        float: right;
+        width: calc(19%);
+    }
+
+    #USdatos{
+        background-color: #a9a871;
+        display:block;
+        padding: 3% 20% 3% 20%;
+        height: 160px;
+    }
+
+    #USp{
+        margin: 8px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-style: italic;
+        color: #ffffff;
+        text-align:left ;
+    }
+
+    #USbotones{
+        display: grid;
+        grid-template-columns: 50% 50%; 
+        justify-items: center;
+        row-gap: 15px;
+        column-gap: 10px;
+        margin: 20px;
+    }
+
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+        align-items: center
+        }
+        
+        .div1 { grid-area: 1 / 1 / 3 / 3; }
+        .div2 { grid-area: 1 / 3 / 3 / 6; }
+
+    .div2 h1{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(40, 69, 41);
+        font-weight: bold;
+        font-style: italic;
+        margin-top: 35px;
+    }
+
+    .div1 h1{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(40, 69, 41);
+        font-weight: bold;
+        font-style: italic;
+        margin-bottom: 35px;
+    }
+
+    .div2{
+        align-items: center
+    }
+
+    .div1 p{
+        text-align:left;
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(40, 69, 41);
+        font-weight: bold;
+        font-style: italic;
+        margin: 15px;
+    }
+
+    #Baile{
+        width: calc(80%);
+        height: calc(100%);
+        padding: 80px;
+    }
+ 

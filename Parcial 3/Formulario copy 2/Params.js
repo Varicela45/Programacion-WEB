@@ -7,6 +7,8 @@ const { jsPDF } = require("jspdf");
 const { check, validationResult } = require('express-validator')
 const mysql = require('mysql2/promise');
 const dotenv = require('dotenv');
+const Swal = require('sweetalert2')
+
 require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 

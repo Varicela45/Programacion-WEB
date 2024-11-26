@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+
 </head>
 <style>
     
@@ -47,7 +49,7 @@
         font-style: italic;
     }
 
-    #btnEnviar{
+    .boton{
         background-color: rgb(218, 142, 114);
         color: white;
         width: 90px;
@@ -88,8 +90,8 @@
         <input class="barra" type="text" id="ID" name="ID" required>
         <br><br>
 
-        <button type="button" id="btnGET">Holaaaa</button>
-        <button type="button" id="btnEnviar">Enviar</button>
+        <button class="boton" type="button" id="btnGET">Buscar</button>
+        <button class="boton" type="button" id="btnEnviar">Enviar</button>
 
     </form>
 
@@ -139,12 +141,26 @@ document.getElementById('btnEnviar').addEventListener("click", async () => {
                 if (!response.ok) {
                     const errorData = await response.json();
                     const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
-                    alert(`Errores de validación:\n${mensajesErrores}`);
+                    await Swal.fire({
+                    icon: 'error',
+                    title: 'Errores de validación',
+                    html: mensajesErrores.replace(/\n/g, '<br>'), // Reemplaza saltos de línea con <br>
+                });
                     return;
                 }
 
                 const data = await response.json();
-                console.log('Datos recibidos:', data);
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Datos del Usuario',
+                    html: `
+                        <strong>ID:</strong> ${data.ID} <br>
+                        <strong>Nombre:</strong> ${data.Nombre} <br>
+                        <strong>Edad:</strong> ${data.Precio} años <br>
+                        <strong>Pais:</strong> ${data.Marca} <br>
+                        <strong>Correo:</strong> ${data.Correo} <br>
+                    `,
+                });
 
             } catch (error) {
                 console.error('Error al enviar datos:', error.message);

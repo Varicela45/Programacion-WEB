@@ -5,254 +5,479 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="style/index.css">
 </head>
 <style>
     
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        background-color:antiquewhite;
-   }
-
-    #portada{
-        width: calc(100%);
-        margin:0px 0px 30px 0px;
-        height: 200px;
-        color: white;
-        text-align: center;
-        background-size: 16%; 
-        background-image: url(https://live.staticflickr.com/32/44219914_e09569dab4_c.jpg)
-    }
-
-    #miForm{
-        margin:20px 20px 50px 50px
-    }
-
-    #title{
-        margin:10px 10px 0px 0px;
-        text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    .barra {
-        background-color: #fff;
-        border-radius: 5px; 
-        align-items: center;
-
-    }
-
-    .labelito{
-        font-family: Arial, Helvetica, sans-serif;
-        color: rgb(213, 96, 50);
-        font-weight: bold;
-        font-style: italic;
-    }
-
-    .btn{
-        background-color: rgb(218, 142, 114);
-        color: white;
-        width: 90px;
-        height: 50px;
-        
-    }
+    
 
 </style>
 <body>
 
-    <div id="portada"></div>
-    img
-    <h1 id="title">Galletas Enterprises</h1>
+    <div class="contenedor">
+            
+          
+        <div id="one"> 
+            <img id="gif1" src="Perfiles/Estilos/yume bailando.gif" >
+            <img id="title" src="Perfiles/Estilos/yume logo.png" >
+            <img id="gif2" src="Perfiles/Estilos/yume bailando.gif">
+        </div>
+       
+        <div id="two">
+            <img id="Baile" src="../CRUD_Yume/Perfiles/Pantallas/Baile.gif" alt="">
+        </div>
+      
+        <div id="three">
+            <div class="container">
+                <div id="stats">
+                    <span>Podras observar...</span>
+                </div>
+                <div class="palette">
+                  <div class="color"><span>Miedo</span></div>
+                  <div class="color"><span>Aventura</span></div>
+                  <div class="color"><span>Sueños</span></div>
+                  <div class="color"><span>Traumas</span></div>
+                  <div class="color"><span>Diversion</span></div>
+                </div>
+                
+                  
+              </div>
+        </div>
+      
+        <div id="four">
+           
+            <form id="miForm" enctype="multipart/form-data">
 
-    <form id="miForm" enctype="multipart/form-data">
+                <div class="parent">
+                    <div class="div1"> 
+                        <h1>Creacion de usuario</h1>
 
-        <label class="labelito"  for="nombre">Nombre:</label>
-        <input class="barra" type="text" id="nombre" name="nombre" required>
-        <br><br>
+                        <label class="labelito"  for="nombre">Nombre:</label>
+                        <input class="barra" type="text" id="nombre" name="nombre" required>
+                        <br><br>
+                
+                        <label class="labelito"  for="edad">Edad:</label>
+                        <input class="barra" type="text" id="edad" name="edad" required>
+                        <br><br>
+                
+                        <label class="labelito" for="correo">Correo:</label>
+                        <input class="barra" type="email" id="correo" name="correo" required>
+                        <br><br>
+                
+                        <label class="labelito" for="pais">Pais:</label>
+                        <input class="barra" type="text" id="pais" name="pais" required>
+                        <br><br>
+            
+                
+                        <p>Inicio de Sesion: </p>
+                
+                        <label class="labelito"  for="ID">ID:</label>
+                        <input class="barra" type="text" id="ID" name="ID" required>
+                        <br><br>
+                
+                        <button type="button" class="btn" id="btnGET">Mostrar</button>
+                        <button type="button" class="btn" id="btnEnviar">Crear</button>
+                        <button type="button" class="btn" style="display: none;" id="btnConfirmar" >Confirmar</button>
+                        <button type="button" class="btn" style="display: none;" id="btnCancelar" >Cancelar</button>
 
-        <label class="labelito"  for="edad">Edad:</label>
-        <input class="barra" type="text" id="edad" name="edad" required>
-        <br><br>
+                    </div>
 
-        <label class="labelito" for="correo">Correo:</label>
-        <input class="barra" type="email" id="correo" name="correo" required>
-        <br><br>
+                    <div class="div2"> 
+                        <h1>Imagenes de avatares:</h1>
+                        <div id="galeria" class="galeria">
+                            <img src="./Perfiles/Dances.png" alt="Imagen 1" class="opcion" data-value="Dances.png">
+                            <img src="./Perfiles/Mado.png" alt="Imagen 2" class="opcion" data-value="Mado.png">
+                            <img src="./Perfiles/Mado2.png" alt="Imagen 3" class="opcion" data-value="Mado2.png">
+                            <img src="./Perfiles/Mado3.png" alt="Imagen 3" class="opcion" data-value="Mado3.png">
+                            <img src="./Perfiles/Mado4.png" alt="Imagen 3" class="opcion" data-value="Mado4.png">
+                            <img src="./Perfiles/Monoe.png" alt="Imagen 3" class="opcion" data-value="Monoe.png">
+                            <img src="./Perfiles/Monoko.png" alt="Imagen 3" class="opcion" data-value="Monoko.png">
+                            <img src="./Perfiles/Monoko2.png" alt="Imagen 3" class="opcion" data-value="Monoko2.png">
+                            <img src="./Perfiles/Monoko3.png" alt="Imagen 3" class="opcion" data-value="Monoko3.png">
+                        </div>
+                        <input type="hidden" id="imagenSeleccionada" name="imagen">
 
-        <label class="labelito" for="pais">Pais:</label>
-        <input class="barra" type="text" id="pais" name="pais" required>
-        <br><br>
+                    </div>
+                </div>
+        
+            </form>
+        </div>
+      
+        <div id="five">
+            
+        </div>
 
-        <label class="labelito" for="imagen">Subir Imagen (PNG):</label>
-        <input class="labelito" type="file" id="imagen" name="imagen" accept="image/png" required>
-        <br><br>
+        <div id="six">
 
-        <label class="labelito"  for="ID">ID:</label>
-        <input class="barra" type="text" id="ID" name="ID" required>
-        <br><br>
+        </div>
 
-        <button type="button" class="btn" id="btnGET">Mostrar</button>
-        <button type="button" class="btn" id="btnDELETE">Eliminar</button>
-        <button type="button" class="btn" id="btnUPDATE">Actualizar</button>
-        <button type="button" class="btn" id="btnEnviar">Crear</button>
+        <div id="seven">
 
-    </form>
+        </div>
+       
+
+    </div>
+
+   
 
     <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const galeria = document.getElementById('galeria');
+            const inputSeleccionado = document.getElementById('imagenSeleccionada');
+            galeria.addEventListener('click', (event) => {
+                const target = event.target;
+
+                    if (target.classList.contains('opcion')) {
+                        document.querySelectorAll('.galeria .opcion').forEach(img => {
+                            img.classList.remove('seleccionada');
+                        });
+                        
+                        target.classList.add('seleccionada');
+                        inputSeleccionado.value = target.dataset.value;
+
+                        console.log('Ruta de la imagen seleccionada:', target.dataset.value);
+                    }
+            })
+        });
+
+        function mostrarDatosEnContenedor(datos) {
+            const contenedor = document.getElementById('five'); 
+
+            contenedor.innerHTML = '';
+
+            const idUsuario = datos.ID !== undefined ? datos.ID : datos.id;
+
+            const formulario = document.createElement('form');
+            formulario.id = 'USForm'; 
+            formulario.enctype = 'multipart/form-data';
+
+            const titulo = document.createElement('h1');
+            titulo.id = 'UStitulo';
+            titulo.textContent = 'Perfil de usuario';
+            formulario.appendChild(titulo);
+
+            
+            const imagen = document.createElement('img');
+            imagen.id = 'USfoto';
+            imagen.src = `../CRUD_Yume/Perfiles/${datos.imagen}`; 
+            imagen.alt = 'Foto de usuario';
+            formulario.appendChild(imagen);
+
+            const divDatos = document.createElement('div');
+            divDatos.id = 'USdatos';
+            
+            const pId = document.createElement('p');
+            pId.id = 'USp';
+            pId.textContent = `ID: ${idUsuario}`; 
+            divDatos.appendChild(pId);
+            
+            const pNombre = document.createElement('p');
+            pNombre.id = 'USp';
+            pNombre.textContent = `Nombre: ${datos.nombre}`;
+            divDatos.appendChild(pNombre);
+            
+            const pPais = document.createElement('p');
+            pPais.id = 'USp';
+            pPais.textContent = `Pais: ${datos.pais}`;
+            divDatos.appendChild(pPais);
+            
+            const pCorreo = document.createElement('p');
+            pCorreo.id = 'USp';
+            pCorreo.textContent = `Correo: ${datos.correo}`;
+            divDatos.appendChild(pCorreo);
+            
+            formulario.appendChild(divDatos);
+
+            const divBotones = document.createElement('div');
+            divBotones.id = 'USbotones';
+
+            const btnUpdate = document.createElement('button');
+            btnUpdate.type = 'button';
+            btnUpdate.className = 'btn';
+            btnUpdate.id = 'btnUPDATE';
+            btnUpdate.textContent = 'Editar';
+            divBotones.appendChild(btnUpdate);
+
+            const btnDelete = document.createElement('button');
+            btnDelete.type = 'button';
+            btnDelete.className = 'btn';
+            btnDelete.id = 'btnDELETE';
+            btnDelete.textContent = 'Eliminar';
+            divBotones.appendChild(btnDelete);
+
+            formulario.appendChild(divBotones);
+
+            contenedor.appendChild(formulario);
+
+        }
 
         document.getElementById('btnEnviar').addEventListener("click", async () => {
             const formElement = document.getElementById('miForm');
             const formData = new FormData(formElement);
 
+            const imagenSeleccionada = formData.get('imagen');
+            if (!imagenSeleccionada) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Falta seleccionar una imagen',
+                    text: 'Por favor selecciona una imagen de la galería antes de enviar.',
+                });
+                return;
+            }
+
+            const usuario = {
+                nombre: formData.get('nombre'),
+                edad: formData.get('edad'),
+                correo: formData.get('correo'),
+                pais: formData.get('pais'),
+                imagen: imagenSeleccionada,
+            };
+
             try {
                 const response = await fetch('http://localhost:3000/formulario', {
                     method: 'POST',
-                    body: formData,
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(usuario),
                 });
 
-                // Manejo de respuesta
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
+                const result = await response.json();
 
-                    // Ventana para mostrar errores de validación
+                if (response.ok) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario creado exitosamente',
+                        html: `ID: ${result.ID}<br>Nombre: ${result.nombre}<br>Edad: ${result.edad}<br>Correo: ${result.correo}<br>País: ${result.pais}`,
+                    });
+
+                    console.log(result)
+                    mostrarDatosEnContenedor(result, 'Usuario creado exitosamente:');
+                    console.log(result)
+                } else {
+                    const errores = result.errors.map(err => err.msg).join('\n');
                     Swal.fire({
                         icon: 'error',
                         title: 'Errores de validación',
-                        html: mensajesErrores.replace(/\n/g, '<br>'), // Reemplaza saltos de línea con <br>
-                    });
-                    return;
-                }
-
-                const data = await response.json();
-
-                // Mostrar mensaje si se generó el PDF
-                if (data.pdfUrl) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'PDF Generado',
-                        text: 'El PDF se generó correctamente. Será abierto en una nueva pestaña.',
-                    }).then(() => {
-                        // Abrir PDF después de cerrar la alerta
-                        window.open(data.pdfUrl, '_blank');
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'warning',
-                        title: 'PDF no encontrado',
-                        text: 'Se insertaron los datos, pero no se generó el PDF.',
+                        html: errores.replace(/\n/g, '<br>'),
                     });
                 }
             } catch (error) {
-                // Ventana para errores de conexión u otros
                 Swal.fire({
                     icon: 'error',
-                    title: 'Error al procesar',
-                    text: `Hubo un error: ${error.message}`,
+                    title: 'Error del servidor',
+                    text: `Hubo un problema: ${error.message}`,
                 });
             }
         });
-
 
         document.getElementById('btnGET').addEventListener("click", async () => {
-                let id = document.getElementById("ID").value;
-                let url = `http://localhost:3000/formulario/?ID=${id}`;
-
-                try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    
-                });
-
-                console.log('Respuesta del servidor:', response);
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
-                    alert(`Errores de validación:\n${mensajesErrores}`);
-                    return;
-                }
-
-                const data = await response.json();
-                console.log('Datos recibidos:', data);
-
-            } catch (error) {
-                console.error('Error al enviar datos:', error.message);
-                alert(`Error al generar el PDF. Detalle: ${error.message}`);
-            }
-
-                console.log(id);
-                console.log(url)
-
-        });
-
-        document.getElementById('btnDELETE').addEventListener("click", async () => {
-            let id = document.getElementById("ID").value;
-            let url = `http://localhost:3000/formulario/?ID=${id}`;
+            const id = document.getElementById('ID').value;
 
             if (!id) {
-                alert('Por favor, ingresa un ID válido.');
+                Swal.fire({
+                    icon: 'error',
+                    title: 'ID requerido',
+                    text: 'Debe proporcionar un ID para buscar un usuario.',
+                });
                 return;
             }
 
             try {
-                const response = await fetch(url, {
-                    method: 'DELETE',
+                const response = await fetch(`http://localhost:3000/formulario?ID=${id}`, {
+                    method: 'GET',
                 });
 
-                console.log('Respuesta del servidor:', response);
+                const result = await response.json();
 
-                // Manejo de errores HTTP
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
-                    alert(`Errores de validación:\n${mensajesErrores}`);
-                    return;
+                if (response.ok) {
+                    mostrarDatosEnContenedor(result, 'Datos del usuario consultado:');
+                } else {
+                    const errores = result.errors.map(err => err.msg).join('\n');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Errores de validación',
+                        html: errores.replace(/\n/g, '<br>'),
+                    });
                 }
-
-                // Intenta parsear el JSON correctamente
-                const data = await response.json();
-                console.log('Datos recibidos:', data);
-
-                alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
             } catch (error) {
-                console.error('Error al enviar datos:', error.message);
-                alert(`Error al generar el PDF. Detalle: ${error.message}`);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error del servidor',
+                    text: `Hubo un problema: ${error.message}`,
+                });
             }
         });
 
-        document.getElementById('btnUPDATE').addEventListener("click", async () => {
+
+
+
+
+
+        document.getElementById('five').addEventListener('click', async (event) => {
+            if (event.target && event.target.id === 'btnDELETE') {
+                let idUsuario = document.querySelector('#USdatos p:first-child').textContent.split(': ')[1];
+
+                if (!idUsuario) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'ID no encontrado',
+                        text: 'No se pudo encontrar el ID del usuario para eliminar.',
+                    });
+                    return;
+                }
+
+                const confirmDelete = await Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Una vez eliminado, no podrás recuperar este usuario.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Sí, eliminar',
+                    cancelButtonText: 'Cancelar',
+                });
+
+                if (confirmDelete.isConfirmed) {
+                    try {
+                    const response = await fetch('http://localhost:3000/formulario', {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ ID: idUsuario }), 
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Usuario eliminado',
+                            text: result.message,
+                        });
+
+                        document.getElementById('USForm').reset();
+                        document.getElementById('five').innerHTML = ''; 
+                    } else {
+                        const errores = result.errors.map(err => err.msg).join('\n');
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error al eliminar',
+                            html: errores.replace(/\n/g, '<br>'),
+                        });
+                    }
+                } catch (error) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error del servidor',
+                        text: `Hubo un problema: ${error.message}`,
+                    });
+                }
+                }
+
+            }
+        });
+
+        
+
+
+        document.getElementById('five').addEventListener('click', async (event) => {
+            if (event.target && event.target.id === 'btnUPDATE') {
+                const idUsuario = document.querySelector('#USdatos p:first-child').textContent.split(': ')[1];
+
+                document.getElementById('btnGET').style.display = 'none';
+                document.getElementById('btnEnviar').style.display = 'none';
+                document.getElementById('btnConfirmar').style.display = 'inline-block';
+                document.getElementById('btnCancelar').style.display = 'inline-block';
+
+                document.getElementById('btnDELETE').disabled = true;
+                document.getElementById('btnUPDATE').disabled = true;
+            
+                document.getElementById('btnConfirmar').setAttribute('data-id', idUsuario);
+            }
+        });
+
+        
+
+        document.getElementById('btnConfirmar').addEventListener("click", async () => {
             const formElement = document.getElementById('miForm');
             const formData = new FormData(formElement);
 
-            // Obtener el ID del formulario o de un campo oculto si ya está disponible
-            let id = document.getElementById('ID').value;  // Asumiendo que userID es un campo oculto
+            let id = document.getElementById('ID').value; 
+
+            const usuario = {
+                ID: id,
+                nombre: formData.get('nombre'),
+                edad: formData.get('edad'),
+                correo: formData.get('correo'),
+                pais: formData.get('pais'),
+                imagen: formData.get('imagen'), 
+            };
 
             try {
                 const response = await fetch(`http://localhost:3000/formulario/?ID=${id}`, {
-                    method: 'PUT',  // Cambiar de POST a PUT
-                    body: formData,
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(usuario),
                 });
 
-                console.log('Respuesta del servidor:', response);
+                const result = await response.json();
+                console.log(result)
 
-                // Manejo de errores HTTP
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    const mensajesErrores = errorData.errors.map(error => error.msg).join('\n');
-                    alert(`Errores de validación:\n${mensajesErrores}`);
-                    return;
+                if (response.ok) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Usuario actualizado exitosamente',
+                        html: `ID: ${result.id}<br>Nombre: ${result.nombre}<br>Edad: ${result.edad}<br>Correo: ${result.correo}<br>País: ${result.pais}`,
+                    });
+
+                    mostrarDatosEnContenedor(result);
+                    resetFormUI();
+
+                } else {
+                    const errores = result.errors.map(err => err.msg).join('\n');
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Errores de validación',
+                        html: errores.replace(/\n/g, '<br>'),
+                    });
                 }
-
-                // Intenta parsear el JSON correctamente
-                const data = await response.json();
-                console.log('Datos actualizados:', data);
-
-                alert('PDF generado exitosamente. Revisa la carpeta del servidor.');
             } catch (error) {
-                alert(`Error al generar el PDF. Detalle: ${error.message}`);
-            }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error del servidor',
+                    text: `Hubo un problema: ${error.message}`,
+                });
+            } 
+
+        });
+
+        document.getElementById('btnCancelar').addEventListener('click', () => {
+            resetFormUI(); 
+            Swal.fire({
+                icon: 'info',
+                title: 'Edición cancelada',
+                text: 'No se realizaron cambios en los datos del usuario.',
+            });
         });
 
 
+        function resetFormUI() {
+            document.getElementById('btnGET').style.display = 'inline-block';
+            document.getElementById('btnEnviar').style.display = 'inline-block';
+
+            document.getElementById('btnConfirmar').style.display = 'none';
+            document.getElementById('btnCancelar').style.display = 'none';
+
+            const btnEliminar = document.querySelectorAll('#btnDELETE');
+            const btnEditar = document.querySelectorAll('#btnUPDATE');
+
+            btnEliminar.forEach(btn => btn.disabled = false);
+            btnEditar.forEach(btn => btn.disabled = false);
+
+        }
         
     </script>
 </body>
